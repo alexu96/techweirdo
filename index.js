@@ -44,7 +44,7 @@ users.sync().then((data) => {
     console.log(err)
 });
 
-app.get('/generateUsers', async (req, res) => {
+app.post('/generateUsers', async (req, res) => {
     for (var i = 0; i < 5000; i++) {
 		await users.insert({
             id:i,
@@ -61,14 +61,20 @@ app.get('/generateUsers', async (req, res) => {
     } 
 });
 
+//1
+app.get('/getAllusers', async (req, res) => {
+    const allusers=await users.findAll({limit:10});
+    res.send(allusers);
+})
+
 //2
-app.get('/createUser', async (req, res) => {
+app.post('/createUser', async (req, res) => {
     await users.create({id:req.body.id,fname:req.body.fname,lname:req.body.lname,password:req.body.password,email:req.body.emial,city:req.body.city,state:req.body.state,country:req.body.country});
     res.send("User created");
 })
 
 //3
-app.get('/updateUser', async (req, res) => {
+app.post('/updateUser', async (req, res) => {
     const updatedUser=await users.update({
         fname:req.body.fname,
         lname:req.body.lname,
@@ -89,6 +95,7 @@ app.get('/getUserById', async (req, res) => {
     const userDetails=await users.findOne({id:req.body.id})
     res.send(userDetails)
 })
+
 app.listen(3000, function () {
-    console.log('Express server is listening on port 3000');
+    console.log('Express server is listening on port 8000');
 });
