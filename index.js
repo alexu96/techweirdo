@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-const { Op } = require("sequelize");
 const express = require('express');
 const bodyParser = require('body-parser');
 const { STRING } = require('sequelize');
