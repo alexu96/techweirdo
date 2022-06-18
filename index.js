@@ -49,7 +49,7 @@ app.post('/generateUsers', async (req, res) => {
             id:i,
 			fname: faker.name.firstName(),
 			lname: faker.name.lastName(),
-			password: faker.phone.phoneNumber(),
+			password: faker.phone.password(),
             email: faker.address.email(),
 			city: faker.address.city(),
 			state: faker.address.state(),
@@ -68,7 +68,7 @@ app.get('/getAllusers', async (req, res) => {
 
 //2
 app.post('/createUser', async (req, res) => {
-    await users.create({id:req.body.id,fname:req.body.fname,lname:req.body.lname,password:req.body.password,email:req.body.emial,city:req.body.city,state:req.body.state,country:req.body.country});
+    await users.create({id:req.body.id,fname:req.body.fname,lname:req.body.lname,password:req.body.password,email:req.body.email,city:req.body.city,state:req.body.state,country:req.body.country});
     res.send("User created");
 })
 
@@ -77,7 +77,7 @@ app.post('/updateUser', async (req, res) => {
     const updatedUser=await users.update({
         fname:req.body.fname,
         lname:req.body.lname,
-        city:req.bosy.city,
+        city:req.body.city,
         state:req.body.state,
         country:req.body.country
 
