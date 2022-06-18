@@ -49,7 +49,7 @@ app.post('/generateUsers', async (req, res) => {
             id:i,
 			fname: faker.name.firstName(),
 			lname: faker.name.lastName(),
-			password: faker.phone.password(),
+			password: faker.password.password(),
             email: faker.address.email(),
 			city: faker.address.city(),
 			state: faker.address.state(),
