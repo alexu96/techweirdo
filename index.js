@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const express = require('express');
 const bodyParser = require('body-parser');
 const { STRING } = require('sequelize');
-const faker=require('faker');
+const { faker } = require('@faker-js/faker');
 
 const app = express();
 
